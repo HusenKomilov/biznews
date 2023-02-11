@@ -1,0 +1,46 @@
+{% load static %}
+{% load posts_tags %}
+{% block main %}
+
+<div class="col-lg-4">
+    <!-- Social Follow Start -->
+    {% include 'pages/components/_follow.html' %}
+    <!-- Social Follow End -->
+
+    <!-- Ads Start -->
+    <div class="mb-3">
+        <div class="section-title mb-0">
+            <h4 class="m-0 text-uppercase font-weight-bold">REKLAMA</h4>
+        </div>
+        <div class="bg-white text-center border border-top-0 p-3">
+            <a href=""><img class="img-fluid" src="{% static 'pages/img/news-800x500-2.jpg' %}" alt=""></a>
+        </div>
+    </div>
+    <!-- Ads End -->
+
+    <!-- Popular News Start -->
+    {% include 'pages/components/_popular_news.html' %}
+    <!-- Popular News End -->
+
+    <!-- Newsletter Start -->
+    {% include 'pages/components/_newsletter.html' %}
+    <!-- Newsletter End -->
+
+    <!-- Tags Start -->
+    <div class="mb-3">
+        <div class="section-title mb-0">
+            <h4 class="m-0 text-uppercase font-weight-bold">TEGLAR</h4>
+        </div>
+        <div class="bg-white border border-top-0 p-3">
+            {% posts_tags as categories %}
+            <div class="d-flex flex-wrap m-n1">
+                {% for category in categories %}
+                <a href="{% url 'category_filter' category.title %}" class="btn btn-sm btn-outline-secondary m-1">
+                    {{ category.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Tags End -->
+</div>
+{% endblock main %}

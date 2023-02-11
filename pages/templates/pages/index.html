@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+
+
+{% block main %}
+
+<!-- Main News Slider Start -->
+{% include 'pages/components/_slider.html' %}
+<!-- Main News Slider End -->
+
+
+<!-- Breaking News Start -->
+{% include 'pages/components/_breaking_news.html' %}
+<!-- Breaking News End -->
+
+
+<!-- Featured News Slider Start -->
+{% include 'pages/components/_featured_news.html' %}
+<!-- Featured News Slider End -->
+
+
+<!-- News With Sidebar Start -->
+{% include 'pages/components/_lasted_news.html' %}
+<!-- News With Sidebar End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+{% endblock main %}

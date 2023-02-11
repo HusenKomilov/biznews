@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+
+{% block main %}
+
+<div class="container">
+    <h4><strong>{{ articles }}</strong><br> maqolasiga oid barcha komentariyalar: </h4>
+
+    {% for comment in comments %}
+    <hr>
+    <h4>
+        {{ comment.text }}: <strong>{{ comment.user }}</strong>
+    </h4>
+    {% endfor %}
+
+</div>
+{% endblock main %}

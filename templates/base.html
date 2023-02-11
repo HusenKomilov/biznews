@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% include 'components/_style.html' %}
+    <title>{% block title %}Django project{% endblock title %}</title>
+</head>
+<body>
+<header>
+    {% block header %}
+    {% include 'components/_topbar.html' %}
+    {% include 'components/_navbar.html' %}
+    {% endblock header %}
+</header>
+<main>
+    {% block messages %}
+    {% include 'components/_messages.html' %}
+    {% endblock messages %}
+
+    {% block main %}
+    {% endblock main %}
+</main>
+<footer>
+    {% block footer %}
+    {% include 'components/_footer.html' %}
+    {% endblock footer %}
+</footer>
+<script>
+    {% block script %}
+    {% endblock script %}
+</script>
+{% include 'components/_scripts.html' %}
+</body>
+</html>

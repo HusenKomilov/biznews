@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+
+{% block main %}
+<div class="container">
+    <div class="main-body">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4>{{ user.username }}</h4>
+                                <p class="text-secondary mb-1">Python Backend Developer</p>
+                                <p class="text-muted font-size-sm">Tashkent</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Full Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ user.username }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ user.email }}
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row gutters-sm">
+                    {% if request.user.is_staff or request.is_superuser %}
+                    <h1>Sizning maqolalariningiz</h1>
+                    {% for article in articles %}
+                    <div class="card p-3 mb-5">
+                        <div class="col-lg-10">
+                            <div class="d-flex justify-content-between">
+                                <div class="col-lg-8">
+                                    <p>{{ article.title }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div class="mr-5">
+                                        <a href="{% url 'update' article.pk %}" class="btn btn-primary">O'zgartirish</a>
+                                    </div>
+                                    <div>
+                                        <a href="{% url 'delete' article.pk %}" class="btn btn-danger">O'cirish</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock main %}
+
+
+

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+
+{% block main %}
+<div class="container"><br>
+    <h1>Yangi maqola</h1>
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {% include 'components/_form_error.html' %}
+        {{ form.as_p }}
+        {% if 'update' in request.path %}
+        <input type="submit" class="btn btn-danger" value="O'zgarishni saqlash">
+        <a href="{{ postarticles.get_absolute_url }}" class="btn btn-danger">O'rqaga</a>
+        {% else %}
+        <input type="submit" class="btn btn-danger" value="Maqola qo'shish">
+        {% endif %}
+    </form>
+</div>
+
+{% endblock main %}

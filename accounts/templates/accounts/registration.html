@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+
+{% block main %}
+<div class="container">
+    <form action="" method="post">{% csrf_token %}
+        {% include 'components/_messages.html' %}
+
+        {{ form.username }}
+        {{ form.password1 }}
+        {{ form.password2 }}
+        {{ form.email }}
+        <input type="submit" class="btn btn-warning" style="margin: 20px;" value="Roýxatdan o'tish">
+    </form>
+</div>
+{% endblock main %}

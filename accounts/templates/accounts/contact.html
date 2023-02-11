@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+
+
+{% block main %}
+
+
+
+<!-- Contact Start -->
+<div class="container-fluid mt-5 pt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-title mb-0">
+                    <h4 class="m-0 text-uppercase font-weight-bold">Murojatlar va takliflar bilan bo'g'lanish uchun</h4>
+                </div>
+                <div class="bg-white border border-top-0 p-4 mb-3">
+                    <div class="mb-4">
+                        <h6 class="text-uppercase font-weight-bold">Kontakt ma'lumotlari</h6>
+                        <p class="mb-4">BizNews web saytga turli xildagi murojatlar va takliflarni bizga yuborishingiz mumkin. Tez orada siga javob qaytaramiz.
+                            hamda emailnigizni registratsiya qilish orqali so'ngi xabarlarga ega bo'lishingiz mumkin.</p>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa fa-map-marker-alt text-primary mr-2"></i>
+                                <h6 class="font-weight-bold mb-0">Manzil</h6>
+                            </div>
+                            <p class="m-0">Tashkent Uzbekistan</p>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa fa-envelope-open text-primary mr-2"></i>
+                                <h6 class="font-weight-bold mb-0">Elaktron pochta</h6>
+                            </div>
+                            <p class="m-0">komilovhusen73@gmail.com</p>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa fa-phone-alt text-primary mr-2"></i>
+                                <h6 class="font-weight-bold mb-0">Telefon raqam</h6>
+                            </div>
+                            <p class="m-0">+998908145149</p>
+                        </div>
+                    </div>
+                    <h6 class="text-uppercase font-weight-bold mb-3">Contact Us</h6>
+                    <form action="" method="post">{% csrf_token %}
+                        {% include 'components/_form_error.html' %}
+                        {{ form.as_p }}
+                        <div>
+                            <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
+                                    type="submit">Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- Social Follow Start -->
+                {% include 'pages/components/_follow.html' %}
+                <!-- Social Follow End -->
+
+                <!-- Newsletter Start -->
+                {% include 'pages/components/_newsletter.html' %}
+                <!-- Newsletter End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+{% block scripts %}
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+{% endblock scripts %}
+{% endblock main %}

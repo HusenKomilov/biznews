@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+{% block main %}
+<div class="container">
+    <br>
+
+    <form action="" method="post">{% csrf_token %}
+        <p><b>{{ postarticles.title }}</b> O'chirishni saqlaysizmi</p>
+        <div>
+            <input type="submit" value="ha" class="btn btn-danger">
+            <a href="{{ postarticles.get_absolute_url }}" class="btn btn-warning" style="margin-left: 50px;">Orqaga</a>
+        </div>
+    </form>
+
+</div>
+{% endblock main %}

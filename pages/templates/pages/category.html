@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+{% block main %}
+
+
+<!-- News With Sidebar Start -->
+<div class="container-fluid mt-5 pt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h4 class="m-0 text-uppercase font-weight-bold">Barcha maqolalar</h4>
+                        </div>
+                    </div>
+
+                    {% for article in articles %}
+                    {% include 'pages/components/_last_news_card.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% include 'pages/components/_last_news_sidebar.html' %}
+        </div>
+    </div>
+</div>
+<!-- News With Sidebar End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+{% endblock main %}
